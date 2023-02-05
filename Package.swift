@@ -14,6 +14,7 @@ let package = Package(
             ),
     ],
     dependencies: [
+        .package(url: "https://github.com/nicklockwood/SwiftFormat.git", branch: "master")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -49,6 +50,7 @@ let package = Package(
                 .unsafeFlags(["-Xfrontend", "-warn-concurrency"])
             ]
         ),
+       
         .testTarget(
             name: "PlaygroundsTests",
             dependencies: ["Playgrounds"]),
