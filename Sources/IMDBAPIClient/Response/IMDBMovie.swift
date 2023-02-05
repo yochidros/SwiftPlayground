@@ -1,6 +1,6 @@
 //
 //  IMDBMovie.swift
-//  
+//
 //
 //  Created by yochidros on 2023/02/05.
 //

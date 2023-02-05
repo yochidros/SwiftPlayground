@@ -1,13 +1,13 @@
 //
 //  APIClient.swift
-//  
+//
 //
 //  Created by yochidros on 2023/02/04.
 //
 
 import Foundation
 #if os(Linux) && canImport(FoundationNetworking)
-import FoundationNetworking
+    import FoundationNetworking
 #endif
 
 public struct APIClient: Sendable {
@@ -26,12 +26,12 @@ public struct APIClient: Sendable {
         configuration: URLSessionConfiguration = .default,
         didMakeRequest: @Sendable @escaping (inout URLRequest) -> Void
     ) {
-        self.urlSession = .init(configuration: configuration)
+        urlSession = .init(configuration: configuration)
         self.didMakeRequest = didMakeRequest
     }
 
-    @Sendable public func send<Request: RequestProtocol, Response: Decodable>(
-        request: Request,
+    @Sendable public func send<Response: Decodable>(
+        request: some RequestProtocol,
         decodeTo response: Response.Type
     ) async throws -> Response {
         var req: URLRequest
@@ -56,5 +56,3 @@ public struct APIClient: Sendable {
         }
     }
 }
-
-
